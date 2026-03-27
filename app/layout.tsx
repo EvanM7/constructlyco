@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "ConstructlyCo | Websites for Trades in Ireland",
   description:
     "ConstructlyCo builds modern websites for builders, plumbers, electricians, and trades across Ireland to help generate more enquiries.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
