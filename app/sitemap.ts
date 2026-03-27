@@ -24,5 +24,9 @@ export default function sitemap() {
         url: "https://constructlyco.ie/builder-websites-kerry",
          lastModified: new Date(),
     },
+    {
+        url: "https://constructlyco.ie/builder-websites-dublin",
+         lastModified: new Date(),
+    },
   ];
 }
