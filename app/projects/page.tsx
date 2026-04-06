@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Projects | ConstructlyCo",
+  description:
+    "View a sample builder website project by ConstructlyCo, designed to help local construction businesses in Ireland look more professional and generate enquiries.",
+};
 
 export default function ProjectsPage() {
   return (
@@ -23,8 +31,24 @@ export default function ProjectsPage() {
         </div>
       </section>
 
+      {/* FEATURED IMAGE */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="overflow-hidden rounded-3xl border border-stone-200 shadow-sm">
+            <Image
+              src="/project-feature.jpg"
+              alt="Featured builder website project example"
+              width={1600}
+              height={900}
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
+        </div>
+      </section>
+
       {/* PROJECT OVERVIEW */}
-      <section className="py-20">
+      <section className="pb-20">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-start">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
@@ -70,8 +94,59 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* WHAT THE SITE INCLUDES */}
+      {/* SUPPORTING IMAGES */}
       <section className="bg-stone-50 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-14 max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
+              Visual Preview
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              A clearer, more professional presentation
+            </h2>
+            <p className="mt-4 text-lg text-stone-600">
+              These sample visuals show how a builder website can be presented
+              in a way that feels modern, trustworthy, and easy for customers to
+              navigate.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+              <Image
+                src="/project-1.jpg"
+                alt="Builder website example homepage"
+                width={900}
+                height={700}
+                className="h-72 w-full object-cover"
+              />
+            </div>
+
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+              <Image
+                src="/project-2.jpg"
+                alt="Builder website example services section"
+                width={900}
+                height={700}
+                className="h-72 w-full object-cover"
+              />
+            </div>
+
+            <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+              <Image
+                src="/project-3.jpg"
+                alt="Builder website example contact section"
+                width={900}
+                height={700}
+                className="h-72 w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT THE SITE INCLUDES */}
+      <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-14 max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
@@ -88,7 +163,7 @@ export default function ProjectsPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
               <h3 className="mb-3 text-xl font-semibold">Homepage</h3>
               <p className="leading-7 text-stone-600">
                 A clear first impression with a strong headline, service
@@ -96,7 +171,7 @@ export default function ProjectsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
               <h3 className="mb-3 text-xl font-semibold">Services Page</h3>
               <p className="leading-7 text-stone-600">
                 Dedicated sections for extensions, renovations, roofing, block
@@ -104,7 +179,7 @@ export default function ProjectsPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
               <h3 className="mb-3 text-xl font-semibold">Contact Page</h3>
               <p className="leading-7 text-stone-600">
                 A simple enquiry form and clear contact details so potential
@@ -116,10 +191,10 @@ export default function ProjectsPage() {
       </section>
 
       {/* BUSINESS GOALS */}
-      <section className="py-24">
+      <section className="bg-stone-900 py-24 text-white">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-14 max-w-3xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-400">
               Business Goals
             </p>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -128,25 +203,25 @@ export default function ProjectsPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
+            <div className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
               <h3 className="mb-3 text-xl font-semibold">Look more established</h3>
-              <p className="leading-7 text-stone-600">
+              <p className="leading-7 text-stone-300">
                 A professional website helps a builder appear more credible and
                 more trustworthy from the first visit.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
+            <div className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
               <h3 className="mb-3 text-xl font-semibold">Show the right services</h3>
-              <p className="leading-7 text-stone-600">
+              <p className="leading-7 text-stone-300">
                 Clear service pages help homeowners or commercial customers
                 quickly understand what the business offers.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
+            <div className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
               <h3 className="mb-3 text-xl font-semibold">Generate more enquiries</h3>
-              <p className="leading-7 text-stone-600">
+              <p className="leading-7 text-stone-300">
                 Strong layout, messaging, and calls to action can turn a visitor
                 into a real quote request.
               </p>
@@ -156,32 +231,32 @@ export default function ProjectsPage() {
       </section>
 
       {/* SAMPLE SERVICE AREAS */}
-      <section className="bg-stone-900 py-24 text-white">
+      <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-14 max-w-3xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
               Example Service Areas
             </p>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Built with local visibility in mind
             </h2>
-            <p className="mt-4 text-lg text-stone-300">
+            <p className="mt-4 text-lg text-stone-600">
               A builder website can be structured to target specific counties,
               towns, or service areas where the business wants more work.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-4">
-            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
               Killarney
             </div>
-            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
               Tralee
             </div>
-            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
               Castleisland
             </div>
-            <div className="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+            <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
               County Kerry
             </div>
           </div>

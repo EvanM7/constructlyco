@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Contact | ConstructlyCo",
+  description:
+    "Contact ConstructlyCo to discuss a modern website for your builder, contractor, or trade business in Ireland.",
+};
 
 export default function ContactPage() {
   return (

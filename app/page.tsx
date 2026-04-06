@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "ConstructlyCo | Websites for Trades in Ireland",
+  description:
+    "ConstructlyCo builds modern websites for builders, plumbers, electricians, roofers, and trades across Ireland to help generate more enquiries.",
+};
 
 export default function Home() {
   return (
