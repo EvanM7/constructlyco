@@ -48,8 +48,8 @@ export default function ContactPage() {
       form.reset();
       router.push("/thank-you");
     } catch (err) {
-      setError("Something went wrong. Please try again.");
       console.error(err);
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

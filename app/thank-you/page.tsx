@@ -1,16 +1,7 @@
-"use client";
-
 import type { Metadata } from "next";
 import Link from "next/link";
-import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
 
 export const metadata: Metadata = {
   title: "Thank You | ConstructlyCo",
@@ -22,16 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function ThankYouPage() {
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "generate_lead", {
-        event_category: "contact",
-        event_label: "form_submission",
-        value: 1,
-      });
-    }
-  }, []);
-
   return (
     <main className="bg-white text-stone-900">
       <Navbar />
