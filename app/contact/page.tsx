@@ -1,14 +1,60 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
-  title: "Contact | ConstructlyCo",
-  description:
-    "Contact ConstructlyCo to discuss a modern website for your builder, contractor, or trade business in Ireland.",
-};
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 export default function ContactPage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvzvgnzy", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "generate_lead", {
+          event_category: "contact",
+          event_label: "form_submission",
+          value: 1,
+        });
+      }
+
+      form.reset();
+      router.push("/thank-you");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <main className="bg-white text-stone-900">
       <Navbar />
@@ -33,11 +79,7 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
             <h2 className="mb-6 text-2xl font-semibold">Request a Quote</h2>
 
-            <form
-              action="https://formspree.io/f/xvzvgnzy"
-              method="POST"
-              className="space-y-5"
-            >
+            <form onSubmit={handleSubmit} className="space-y-5">
               <input
                 type="text"
                 name="name"
@@ -66,14 +108,20 @@ export default function ContactPage() {
                 name="message"
                 placeholder="Tell us about your business and what kind of website you need..."
                 rows={5}
+                required
                 className="w-full rounded-lg border border-stone-300 px-4 py-3 outline-none transition focus:border-stone-500"
               />
 
+              {error ? (
+                <p className="text-sm font-medium text-red-600">{error}</p>
+              ) : null}
+
               <button
                 type="submit"
-                className="w-full rounded-lg bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700"
+                disabled={loading}
+                className="w-full rounded-lg bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Submit Request
+                {loading ? "Sending..." : "Submit Request"}
               </button>
             </form>
           </div>
