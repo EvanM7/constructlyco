@@ -45,8 +45,10 @@ export default function ContactPage() {
         });
       }
 
-      form.reset();
-      router.push("/thank-you");
+      // wait 500ms before redirect (CRITICAL)
+      setTimeout(() => {
+        router.push("/thank-you");
+      }, 500);
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
