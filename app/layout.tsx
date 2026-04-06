@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,24 +14,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ConstructlyCo | Websites for Trades in Ireland",
-  description:
-    "ConstructlyCo builds modern websites for builders, plumbers, electricians, and trades across Ireland to help generate more enquiries.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  title: "ConstructlyCo",
+  description: "Websites for trades in Ireland",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EJGHCNFEN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2EJGHCNFEN');
+          `}
+        </Script>
+      </head>
+
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
