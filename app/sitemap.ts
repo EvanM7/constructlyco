@@ -32,5 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://constructlyco.ie/builder-websites-dublin",
       lastModified,
     },
+    {
+      url: "https://constructlyco.ie/builder-websites-cork",
+      lastModified,
+    },
   ];
 }

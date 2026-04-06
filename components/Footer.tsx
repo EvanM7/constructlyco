@@ -5,8 +5,6 @@ export default function Footer() {
     <footer className="border-t border-stone-200 bg-stone-50">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-4">
-
-          {/* BRAND */}
           <div>
             <h3 className="text-lg font-semibold text-stone-900">
               ConstructlyCo
@@ -17,7 +15,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* QUICK LINKS */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
               Pages
@@ -51,7 +48,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* SERVICES */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
               Services
@@ -64,7 +60,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* LOCATIONS */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
               Service Areas
@@ -86,12 +81,18 @@ export default function Footer() {
                   Dublin
                 </Link>
               </li>
-              <li className="text-stone-400">Cork (coming soon)</li>
+              <li>
+                <Link
+                  href="/builder-websites-cork"
+                  className="hover:text-stone-900"
+                >
+                  Cork
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
         <div className="mt-12 border-t border-stone-200 pt-6 text-center text-sm text-stone-500">
           <p>© {new Date().getFullYear()} ConstructlyCo. All rights reserved.</p>
           <p className="mt-2">
