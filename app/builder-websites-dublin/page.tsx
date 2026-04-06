@@ -1,24 +1,33 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
-export default function BuilderWebsitesKerry() {
+export const metadata: Metadata = {
+  title: "Websites for Builders in Dublin | ConstructlyCo",
+  description:
+    "ConstructlyCo builds modern, high-converting websites for builders in Dublin to help generate more enquiries and win more jobs.",
+};
+
+export default function BuilderWebsitesDublin() {
   return (
     <main className="bg-white text-black">
       <Navbar />
 
       {/* HERO */}
       <section className="max-w-5xl mx-auto px-6 py-24">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        <h1 className="mb-6 text-4xl font-bold md:text-5xl">
           Websites for Builders in Dublin
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          We build modern, high-converting websites for builders in Dublin to help you get more enquiries, win more jobs, and stand out from competitors.
+        <p className="mb-8 text-lg text-gray-600">
+          We build modern, high-converting websites for builders in Dublin to
+          help you get more enquiries, win more jobs, and stand out from
+          competitors.
         </p>
 
         <Link
           href="/contact"
-          className="bg-black text-white px-6 py-3 rounded-lg"
+          className="rounded-lg bg-black px-6 py-3 text-white"
         >
           Get a Free Quote
         </Link>
@@ -26,39 +35,38 @@ export default function BuilderWebsitesKerry() {
 
       {/* CONTENT */}
       <section className="max-w-4xl mx-auto px-6 pb-20 text-gray-700">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="mb-4 text-2xl font-semibold">
           Why builders in Dublin need a strong website
         </h2>
         <p className="mb-6">
-          Most customers search online before choosing a builder. If your business doesn’t appear or your website looks outdated, you’re losing potential jobs to competitors.
+          Most customers search online before choosing a builder. If your
+          business doesn’t appear or your website looks outdated, you’re losing
+          potential jobs to competitors.
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4">
-          What we build
-        </h2>
-        <ul className="space-y-2 mb-6">
+        <h2 className="mb-4 text-2xl font-semibold">What we build</h2>
+        <ul className="mb-6 space-y-2">
           <li>• Professional, modern design</li>
           <li>• Mobile-friendly and fast</li>
           <li>• Clear services and project showcase</li>
           <li>• Easy contact and quote requests</li>
         </ul>
 
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="mb-4 text-2xl font-semibold">
           Built to generate enquiries
         </h2>
         <p>
-          Our websites are designed to turn visitors into real enquiries, helping builders across Kerry grow their business consistently.
+          Our websites are designed to turn visitors into real enquiries,
+          helping builders across Dublin grow their business consistently.
         </p>
       </section>
 
       {/* CTA */}
-      <section className="bg-black text-white py-16 text-center">
-        <h2 className="text-2xl font-bold mb-4">
-          Get More Jobs in Dublin
-        </h2>
+      <section className="bg-black py-16 text-center text-white">
+        <h2 className="mb-4 text-2xl font-bold">Get More Jobs in Dublin</h2>
         <Link
           href="/contact"
-          className="bg-white text-black px-6 py-3 rounded-lg"
+          className="rounded-lg bg-white px-6 py-3 text-black"
         >
           Request a Quote
         </Link>
