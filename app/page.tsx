@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -22,7 +23,8 @@ export default function Home() {
             </p>
 
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-stone-900 md:text-6xl">
-              Websites That Help Tradespeople Win More Work
+              Websites for Builders & Trades in Ireland That Generate More
+              Enquiries
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-600 md:text-xl">
@@ -281,8 +283,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SERVICE AREAS */}
+      <section className="bg-stone-50 py-20">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
+            Service Areas
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            Builder website services in key locations
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
+            We are building location-focused pages to help trades and builders
+            in major Irish markets find the right website support more easily.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/builder-websites-kerry"
+              className="rounded-lg border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 transition hover:border-stone-400 hover:bg-white"
+            >
+              Builder Websites Kerry
+            </Link>
+            <Link
+              href="/builder-websites-dublin"
+              className="rounded-lg border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 transition hover:border-stone-400 hover:bg-white"
+            >
+              Builder Websites Dublin
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="border-t border-stone-200 bg-stone-50 py-24">
+      <section className="border-t border-stone-200 bg-white py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
             Get Started
