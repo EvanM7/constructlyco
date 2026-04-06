@@ -155,134 +155,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEM SECTION */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
-            Why It Matters
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Most trade businesses are losing jobs online
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-600">
-            If your business does not have a strong website, many customers will
-            move on to a competitor who looks more established and easier to
-            contact.
-          </p>
-
-          <div className="mt-12 grid gap-6 text-left md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-200 p-6 shadow-sm">
-              <h3 className="mb-2 text-xl font-semibold">No website</h3>
-              <p className="leading-7 text-stone-600">
-                Customers may struggle to find your business or may question
-                whether you are active and professional.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 p-6 shadow-sm">
-              <h3 className="mb-2 text-xl font-semibold">Outdated website</h3>
-              <p className="leading-7 text-stone-600">
-                An old or poorly designed site can make good businesses look
-                less trustworthy than they really are.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 p-6 shadow-sm">
-              <h3 className="mb-2 text-xl font-semibold">No clear contact path</h3>
-              <p className="leading-7 text-stone-600">
-                If people cannot quickly call, email, or request a quote, you
-                will lose enquiries to competitors.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section className="bg-stone-900 py-24 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-400">
-            Pricing
-          </p>
-
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Simple, affordable websites for trades
-          </h2>
-
-          <div className="mt-12 rounded-3xl bg-white/5 p-10 ring-1 ring-white/10">
-            <h3 className="text-2xl font-semibold">Website Package</h3>
-            <p className="mt-4 text-4xl font-bold">€300 – €500</p>
-
-            <p className="mx-auto mt-4 max-w-2xl text-stone-300">
-              A clean, professional website package for trade businesses that
-              want a stronger online presence without unnecessary complexity.
-            </p>
-
-            <ul className="mt-8 space-y-3 text-stone-300">
-              <li>5-page professional website</li>
-              <li>Mobile-friendly design</li>
-              <li>Clear contact call-to-actions</li>
-              <li>SEO-ready structure</li>
-              <li>Fast, modern layout</li>
-            </ul>
-
-            <a
-              href="mailto:info@constructlyco.ie"
-              className="mt-8 inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-stone-900 transition hover:bg-stone-200"
-            >
-              Get Started
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
-              How It Works
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              A Simple Process for More Enquiries
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold">
-                1. Tell Us About Your Business
-              </h3>
-              <p className="leading-7 text-stone-600">
-                We learn about your trade, service area, and the kind of jobs
-                you want to win more of.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold">
-                2. We Build Your Website
-              </h3>
-              <p className="leading-7 text-stone-600">
-                We create a professional website that clearly presents your
-                services and encourages people to contact you.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
-              <h3 className="mb-3 text-xl font-semibold">
-                3. You Get More Leads
-              </h3>
-              <p className="leading-7 text-stone-600">
-                Your business gets a stronger online presence and a better
-                chance of turning local searches into paying work.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SERVICE AREAS */}
       <section className="bg-stone-50 py-20">
         <div className="mx-auto max-w-6xl px-6 text-center">
@@ -292,23 +164,16 @@ export default function Home() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             Builder website services in key locations
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-600">
-            We are building location-focused pages to help trades and builders
-            in major Irish markets find the right website support more easily.
-          </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/builder-websites-kerry"
-              className="rounded-lg border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 transition hover:border-stone-400 hover:bg-white"
-            >
+            <Link href="/builder-websites-kerry" className="underline">
               Builder Websites Kerry
             </Link>
-            <Link
-              href="/builder-websites-dublin"
-              className="rounded-lg border border-stone-300 px-5 py-3 text-sm font-semibold text-stone-900 transition hover:border-stone-400 hover:bg-white"
-            >
+            <Link href="/builder-websites-dublin" className="underline">
               Builder Websites Dublin
+            </Link>
+            <Link href="/builder-websites-cork" className="underline">
+              Builder Websites Cork
             </Link>
           </div>
         </div>
@@ -317,16 +182,9 @@ export default function Home() {
       {/* CTA */}
       <section className="border-t border-stone-200 bg-white py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
-            Get Started
-          </p>
           <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
             Need a Better Website for Your Trade Business?
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-600">
-            ConstructlyCo helps tradespeople across Ireland create a stronger
-            first impression online and generate more enquiries.
-          </p>
 
           <div className="mt-10">
             <a
