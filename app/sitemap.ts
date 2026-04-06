@@ -1,32 +1,36 @@
-export default function sitemap() {
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   return [
     {
       url: "https://constructlyco.ie",
-      lastModified: new Date(),
+      lastModified,
     },
     {
       url: "https://constructlyco.ie/services",
-      lastModified: new Date(),
+      lastModified,
     },
     {
       url: "https://constructlyco.ie/projects",
-      lastModified: new Date(),
+      lastModified,
     },
     {
       url: "https://constructlyco.ie/about",
-      lastModified: new Date(),
+      lastModified,
     },
     {
       url: "https://constructlyco.ie/contact",
-      lastModified: new Date(),
+      lastModified,
     },
     {
-        url: "https://constructlyco.ie/builder-websites-kerry",
-         lastModified: new Date(),
+      url: "https://constructlyco.ie/builder-websites-kerry",
+      lastModified,
     },
     {
-        url: "https://constructlyco.ie/builder-websites-dublin",
-         lastModified: new Date(),
+      url: "https://constructlyco.ie/builder-websites-dublin",
+      lastModified,
     },
   ];
 }
