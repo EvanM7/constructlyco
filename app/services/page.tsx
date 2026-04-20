@@ -3,9 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Services | ConstructlyCo",
+  title: "Website Design Services for Irish Trades",
   description:
-    "Explore ConstructlyCo's website design, local SEO structure, and lead-focused website services for builders and trades across Ireland.",
+    "Website design, local SEO setup and lead-focused pages for Irish trades. Packages from €300. Mobile-friendly sites built to generate real enquiries.",
 };
 
 export default function ServicesPage() {

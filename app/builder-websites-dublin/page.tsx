@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Websites for Builders in Dublin | ConstructlyCo",
+  title: {
+    absolute: "Builder Websites Dublin | Web Design for Dublin Tradesmen",
+  },
   description:
-    "ConstructlyCo builds modern, high-converting websites for builders in Dublin to help generate more enquiries and win more jobs.",
+    "Website design for builders, contractors and tradesmen in Dublin. ConstructlyCo builds modern, mobile-friendly sites that rank locally and drive leads.",
 };
 
 export default function BuilderWebsitesDublin() {

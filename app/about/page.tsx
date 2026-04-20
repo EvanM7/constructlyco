@@ -3,9 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About | ConstructlyCo",
+  title: "About Us – Web Design for Irish Trades",
   description:
-    "Learn about ConstructlyCo and how we help builders, contractors, and trades across Ireland look more professional online and win more work.",
+    "Meet ConstructlyCo — modern, mobile-friendly websites built for builders, plumbers, electricians and trade businesses across Ireland to help win more work.",
 };
 
 export default function AboutPage() {

@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Websites for Builders in Cork | ConstructlyCo",
+  title: {
+    absolute: "Builder Websites Cork | Web Design for Cork Tradesmen",
+  },
   description:
-    "ConstructlyCo builds modern, high-converting websites for builders in Cork to help generate more enquiries and win more jobs.",
+    "Website design for builders, contractors and tradesmen in Cork. ConstructlyCo builds modern, mobile-friendly sites that rank locally and drive leads.",
 };
 
 export default function BuilderWebsitesCork() {

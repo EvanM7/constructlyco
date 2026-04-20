@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ConstructlyCo",
-  description: "Websites for trades in Ireland",
+  title: {
+    default: "Websites for Builders & Trades in Ireland | ConstructlyCo",
+    template: "%s | ConstructlyCo",
+  },
+  description:
+    "ConstructlyCo designs modern, mobile-friendly websites for builders, plumbers, electricians and trades across Ireland. Built for local SEO and more enquiries.",
 };
 
 export default function RootLayout({

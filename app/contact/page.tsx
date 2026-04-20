@@ -1,62 +1,15 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ContactForm from "./ContactForm";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+export const metadata: Metadata = {
+  title: "Contact Us for a Website Quote",
+  description:
+    "Contact ConstructlyCo for a free quote on a modern website for your Irish trade business. Builders, plumbers, electricians and tradesmen welcome.",
+};
 
 export default function ContactPage() {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch("https://formspree.io/f/xvzvgnzy", {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "generate_lead", {
-          event_category: "contact",
-          event_label: "form_submission",
-          value: 1,
-        });
-      }
-
-      // wait 500ms before redirect (CRITICAL)
-      setTimeout(() => {
-        router.push("/thank-you");
-      }, 500);
-    } catch (err) {
-      console.error(err);
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
     <main className="bg-white text-stone-900">
       <Navbar />
@@ -80,52 +33,7 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2">
           <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
             <h2 className="mb-6 text-2xl font-semibold">Request a Quote</h2>
-
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                className="w-full rounded-lg border border-stone-300 px-4 py-3 outline-none transition focus:border-stone-500"
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                className="w-full rounded-lg border border-stone-300 px-4 py-3 outline-none transition focus:border-stone-500"
-              />
-
-              <input
-                type="text"
-                name="trade"
-                placeholder="Your Trade (e.g. Builder, Plumber)"
-                required
-                className="w-full rounded-lg border border-stone-300 px-4 py-3 outline-none transition focus:border-stone-500"
-              />
-
-              <textarea
-                name="message"
-                placeholder="Tell us about your business and what kind of website you need..."
-                rows={5}
-                required
-                className="w-full rounded-lg border border-stone-300 px-4 py-3 outline-none transition focus:border-stone-500"
-              />
-
-              {error ? (
-                <p className="text-sm font-medium text-red-600">{error}</p>
-              ) : null}
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full rounded-lg bg-stone-900 px-6 py-3 font-semibold text-white transition hover:bg-stone-700 disabled:cursor-not-allowed disabled:opacity-70"
-              >
-                {loading ? "Sending..." : "Submit Request"}
-              </button>
-            </form>
+            <ContactForm />
           </div>
 
           <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">

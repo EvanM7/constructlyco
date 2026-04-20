@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Projects | ConstructlyCo",
+  title: "Builder Website Examples & Projects",
   description:
-    "View a sample builder website project by ConstructlyCo, designed to help local construction businesses in Ireland look more professional and generate enquiries.",
+    "See a sample builder website by ConstructlyCo, designed to help Irish construction and trade businesses look professional online and win more work.",
 };
 
 export default function ProjectsPage() {

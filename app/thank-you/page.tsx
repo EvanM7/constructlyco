@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Thank You | ConstructlyCo",
-  description: "Thank you for contacting ConstructlyCo.",
+  title: "Thank You",
+  description:
+    "Thanks for contacting ConstructlyCo. We'll be in touch shortly about your website enquiry and next steps.",
   robots: {
     index: false,
     follow: false,

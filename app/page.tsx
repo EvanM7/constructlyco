@@ -4,9 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "ConstructlyCo | Websites for Trades in Ireland",
+  title: {
+    absolute: "Websites for Builders & Trades in Ireland | ConstructlyCo",
+  },
   description:
-    "ConstructlyCo builds modern websites for builders, plumbers, electricians, roofers, and trades across Ireland to help generate more enquiries.",
+    "Modern, mobile-friendly websites for builders, plumbers, electricians and trades across Ireland. Built for local SEO and to turn visits into enquiries.",
 };
 
 export default function Home() {
