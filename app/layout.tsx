@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,12 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.constructlyco.ie"),
   title: {
     default: "Websites for Builders & Trades in Ireland | ConstructlyCo",
     template: "%s | ConstructlyCo",
   },
   description:
-    "ConstructlyCo designs modern, mobile-friendly websites for builders, plumbers, electricians and trades across Ireland. Built for local SEO and more enquiries.",
+    "ConstructlyCo designs modern, mobile-friendly websites for builders, plumbers, electricians and trades across Ireland. A clear five-page website package, with copywriting help, search foundations and website handover.",
 };
 
 export default function RootLayout({
@@ -32,23 +34,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2EJGHCNFEN"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-2EJGHCNFEN');
-          `}
-        </Script>
-      </head>
-
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <Navbar />
+        <div id="main-content">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }

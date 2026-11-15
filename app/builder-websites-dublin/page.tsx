@@ -1,80 +1,15 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-
+import LocationPage from "@/components/LocationPage";
 export const metadata: Metadata = {
-  title: {
-    absolute: "Builder Websites Dublin | Web Design for Dublin Tradesmen",
-  },
+  title: "Websites for Builders & Trades in Dublin",
   description:
-    "Website design for builders, contractors and tradesmen in Dublin. ConstructlyCo builds modern, mobile-friendly sites that rank locally and drive leads.",
+    "A €750 five-page website package for trade businesses in Dublin. Clear services, project photographs and contact options. View the scope and costs.",
 };
-
-export default function BuilderWebsitesDublin() {
+export default function Page() {
   return (
-    <main className="bg-white text-black">
-      <Navbar />
-
-      {/* HERO */}
-      <section className="max-w-5xl mx-auto px-6 py-24">
-        <h1 className="mb-6 text-4xl font-bold md:text-5xl">
-          Websites for Builders in Dublin
-        </h1>
-        <p className="mb-8 text-lg text-gray-600">
-          We build modern, high-converting websites for builders in Dublin to
-          help you get more enquiries, win more jobs, and stand out from
-          competitors.
-        </p>
-
-        <Link
-          href="/contact"
-          className="rounded-lg bg-black px-6 py-3 text-white"
-        >
-          Get a Free Quote
-        </Link>
-      </section>
-
-      {/* CONTENT */}
-      <section className="max-w-4xl mx-auto px-6 pb-20 text-gray-700">
-        <h2 className="mb-4 text-2xl font-semibold">
-          Why builders in Dublin need a strong website
-        </h2>
-        <p className="mb-6">
-          Most customers search online before choosing a builder. If your
-          business doesn’t appear or your website looks outdated, you’re losing
-          potential jobs to competitors.
-        </p>
-
-        <h2 className="mb-4 text-2xl font-semibold">What we build</h2>
-        <ul className="mb-6 space-y-2">
-          <li>• Professional, modern design</li>
-          <li>• Mobile-friendly and fast</li>
-          <li>• Clear services and project showcase</li>
-          <li>• Easy contact and quote requests</li>
-        </ul>
-
-        <h2 className="mb-4 text-2xl font-semibold">
-          Built to generate enquiries
-        </h2>
-        <p>
-          Our websites are designed to turn visitors into real enquiries,
-          helping builders across Dublin grow their business consistently.
-        </p>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-black py-16 text-center text-white">
-        <h2 className="mb-4 text-2xl font-bold">Get More Jobs in Dublin</h2>
-        <Link
-          href="/contact"
-          className="rounded-lg bg-white px-6 py-3 text-black"
-        >
-          Request a Quote
-        </Link>
-      </section>
-
-      <Footer />
-    </main>
+    <LocationPage
+      county="Dublin"
+      towns={["Dublin city", "Swords", "Tallaght", "Dún Laoghaire"]}
+    />
   );
 }

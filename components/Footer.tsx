@@ -1,108 +1,40 @@
 import Link from "next/link";
-
+import AnalyticsConsent from "./AnalyticsConsent";
 export default function Footer() {
   return (
-    <footer className="border-t border-stone-200 bg-stone-50">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-4">
+    <footer className="site-footer">
+      <div className="wrap">
+        <div className="footer-top">
           <div>
-            <h3 className="text-lg font-semibold text-stone-900">
-              ConstructlyCo
-            </h3>
-            <p className="mt-4 text-sm leading-6 text-stone-600">
-              We build modern websites for builders, plumbers, electricians and
-              trades across Ireland to help generate more enquiries.
+            <Link href="/" className="brand">
+              Constructly<span className="brand-co">Co</span>
+              <span className="brand-period">.</span>
+            </Link>
+            <p>
+              Thoughtful websites for Irish trade businesses.
+              <br />
+              Clear scope. Straightforward delivery.
             </p>
           </div>
-
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-              Pages
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <Link href="/" className="hover:text-stone-900">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-stone-900">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="hover:text-stone-900">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-stone-900">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-stone-900">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <p className="eyebrow">Explore</p>
+            <Link href="/services">The €750 package</Link>
+            <Link href="/projects">Example website</Link>
+            <Link href="/about">About ConstructlyCo</Link>
+            <Link href="/contact">Start an enquiry</Link>
           </div>
-
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-              Services
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm text-stone-600">
-              <li>Website Design</li>
-              <li>Local SEO Structure</li>
-              <li>Lead Generation Websites</li>
-              <li>Mobile-Friendly Sites</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-stone-500">
-              Service Areas
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/builder-websites-kerry"
-                  className="hover:text-stone-900"
-                >
-                  Kerry
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/builder-websites-dublin"
-                  className="hover:text-stone-900"
-                >
-                  Dublin
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/builder-websites-cork"
-                  className="hover:text-stone-900"
-                >
-                  Cork
-                </Link>
-              </li>
-            </ul>
+            <p className="eyebrow">Across Ireland</p>
+            <Link href="/builder-websites-kerry">Kerry</Link>
+            <Link href="/builder-websites-dublin">Dublin</Link>
+            <Link href="/builder-websites-cork">Cork</Link>
+            <p>Working remotely, nationwide.</p>
           </div>
         </div>
-
-        <div className="mt-12 border-t border-stone-200 pt-6 text-center text-sm text-stone-500">
-          <p>© {new Date().getFullYear()} ConstructlyCo. All rights reserved.</p>
-          <p className="mt-2">
-            <a
-              href="mailto:info@constructlyco.ie"
-              className="underline underline-offset-4"
-            >
-              info@constructlyco.ie
-            </a>
-          </p>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} ConstructlyCo</span>
+          <Link href="/privacy">Privacy &amp; contact information</Link>
+          <AnalyticsConsent />
         </div>
       </div>
     </footer>

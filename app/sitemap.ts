@@ -4,36 +4,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
+    { url: "https://www.constructlyco.ie/privacy", lastModified },
     {
-      url: "https://constructlyco.ie",
+      url: "https://www.constructlyco.ie",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/services",
+      url: "https://www.constructlyco.ie/services",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/projects",
+      url: "https://www.constructlyco.ie/projects",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/about",
+      url: "https://www.constructlyco.ie/about",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/contact",
+      url: "https://www.constructlyco.ie/contact",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/builder-websites-kerry",
+      url: "https://www.constructlyco.ie/builder-websites-kerry",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/builder-websites-dublin",
+      url: "https://www.constructlyco.ie/builder-websites-dublin",
       lastModified,
     },
     {
-      url: "https://constructlyco.ie/builder-websites-cork",
+      url: "https://www.constructlyco.ie/builder-websites-cork",
       lastModified,
     },
   ];
