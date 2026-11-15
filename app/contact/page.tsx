@@ -1,78 +1,57 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Link from "next/link";
 import ContactForm from "./ContactForm";
-
 export const metadata: Metadata = {
-  title: "Contact Us for a Website Quote",
+  title: "Enquire About Your Trade Website",
   description:
-    "Contact ConstructlyCo for a free quote on a modern website for your Irish trade business. Builders, plumbers, electricians and tradesmen welcome.",
+    "Discuss the €750 five-page website package. No payment or commitment is required to enquire.",
 };
-
-export default function ContactPage() {
+export default function Contact() {
   return (
-    <main className="bg-white text-stone-900">
-      <Navbar />
-
-      <section className="border-b border-stone-200 bg-stone-50">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-24">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-stone-500">
-            Contact
-          </p>
-          <h1 className="max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
-            Get a Website That Brings You More Work
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-600">
-            Fill out the form below and we will get back to you about your
-            website, your business, and what you need.
-          </p>
-        </div>
+    <main>
+      <section className="page-hero wrap">
+        <p className="eyebrow">Let’s talk about your website</p>
+        <h1>
+          Tell us about
+          <br />
+          <em>your business.</em>
+        </h1>
+        <p>
+          A few details are enough to start. We’ll review what you need and
+          confirm the scope, total and schedule before any work begins.
+        </p>
       </section>
-
-      <section className="py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
-            <h2 className="mb-6 text-2xl font-semibold">Request a Quote</h2>
-            <ContactForm />
-          </div>
-
-          <div className="rounded-2xl border border-stone-200 p-8 shadow-sm">
-            <h2 className="text-2xl font-semibold">Contact Details</h2>
-
-            <div className="mt-6 space-y-4 text-stone-700">
-              <p>
-                <span className="font-semibold">Email:</span>{" "}
-                <a
-                  href="mailto:info@constructlyco.ie"
-                  className="underline underline-offset-4"
-                >
-                  info@constructlyco.ie
-                </a>
-              </p>
-
-              <p>
-                <span className="font-semibold">Location:</span> Ireland
-              </p>
-
-              <p>
-                <span className="font-semibold">Response time:</span> Within 24
-                hours
-              </p>
-            </div>
-
-            <div className="mt-10">
-              <h3 className="mb-3 text-lg font-semibold">What happens next?</h3>
-              <ul className="space-y-3 text-stone-600">
-                <li>• We review your business</li>
-                <li>• We suggest a website structure</li>
-                <li>• We give you a clear price</li>
-              </ul>
-            </div>
-          </div>
+      <section className="section wrap contact-grid">
+        <div className="contact-card">
+          <h2>Your website enquiry</h2>
+          <p className="muted">No payment or commitment at this stage.</p>
+          <ContactForm />
         </div>
+        <aside className="contact-aside">
+          <p className="eyebrow">The Trade Website</p>
+          <div className="contact-price">
+            €750<span>one-off website build</span>
+          </div>
+          <p>
+            Five pages, copywriting help, search foundations and two rounds of
+            revisions.
+          </p>
+          <Link href="/services" className="text-link">
+            Review the complete package →
+          </Link>
+          <hr />
+          <h3>What happens next?</h3>
+          <ol>
+            <li>We review your services and what you need.</li>
+            <li>We confirm whether the package fits.</li>
+            <li>You receive a written scope, costs and proposed schedule.</li>
+          </ol>
+          <p className="fine-print">
+            Hosting, domain and email costs are separate. Optional website care
+            is €49/month. Any applicable VAT is confirmed in your written quote.
+          </p>
+        </aside>
       </section>
-
-      <Footer />
     </main>
   );
 }
