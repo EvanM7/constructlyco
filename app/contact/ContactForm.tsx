@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 declare global {
   interface Window {
@@ -11,9 +11,11 @@ export default function ContactForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const sending = useRef(false);
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (loading) return;
+    if (sending.current) return;
+    sending.current = true;
     setLoading(true);
     setError("");
     try {
@@ -23,20 +25,31 @@ export default function ContactForm() {
         headers: { Accept: "application/json" },
       });
       if (!response.ok) throw new Error("Unable to send enquiry");
-      window.gtag?.("event", "generate_lead", {
-        event_category: "contact",
-        event_label: "trade_website_package",
-      });
-      router.push("/thank-you");
     } catch {
       setError(
         "Your enquiry could not be sent. Your details are still here; please try again.",
       );
+      sending.current = false;
       setLoading(false);
+      return;
     }
+    // An analytics error must never make a successful enquiry look unsent.
+    try {
+      window.gtag?.("event", "generate_lead", {
+        event_category: "contact",
+        event_label: "trade_website_package",
+      });
+    } catch {}
+    router.push("/thank-you");
   }
   return (
-    <form onSubmit={handleSubmit} className="enquiry-form" aria-busy={loading}>
+    <form
+      action="https://formspree.io/f/xvzvgnzy"
+      method="post"
+      onSubmit={handleSubmit}
+      className="enquiry-form"
+      aria-busy={loading}
+    >
       <input
         type="hidden"
         name="_subject"
@@ -51,6 +64,17 @@ export default function ContactForm() {
         aria-hidden="true"
         aria-label="Leave this field empty"
       />
+      <fieldset className="project-type" disabled={loading}>
+        <legend>What are you thinking?</legend>
+        <div className="project-options">
+          {["A new website", "Refresh my website", "Not sure yet"].map((type) => (
+            <label className="project-choice" key={type}>
+              <input type="radio" name="project_type" value={type} defaultChecked={type === "Not sure yet"} />
+              <span>{type}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <div className="form-row">
         <label htmlFor="name">
           Your name
@@ -60,6 +84,7 @@ export default function ContactForm() {
             autoComplete="name"
             required
             maxLength={100}
+            placeholder="Your name"
           />
         </label>
         <label htmlFor="email">
@@ -71,6 +96,7 @@ export default function ContactForm() {
             autoComplete="email"
             required
             maxLength={254}
+            placeholder="you@yourbusiness.ie"
           />
         </label>
       </div>
@@ -82,40 +108,46 @@ export default function ContactForm() {
           autoComplete="organization"
           required
           maxLength={150}
+          placeholder="Your business or trading name"
         />
       </label>
-      <div className="form-row">
-        <label htmlFor="trade">
-          Your trade
+      <details className="form-details">
+        <summary>
+          Add a little more detail <span>optional</span>
+          <span className="details-indicator" aria-hidden="true">+</span>
+        </summary>
+        <p>Already know what you need? These details help us prepare.</p>
+        <div className="form-row">
+          <label htmlFor="trade">
+            Your trade
+            <input
+              id="trade"
+              name="trade"
+              placeholder="e.g. Builder, electrician"
+              maxLength={100}
+            />
+          </label>
+          <label htmlFor="area">
+            Where do you work?
+            <input
+              id="area"
+              name="service_area"
+              placeholder="e.g. Kerry"
+              maxLength={150}
+            />
+          </label>
+        </div>
+        <label htmlFor="website">
+          Existing website <span>(optional)</span>
           <input
-            id="trade"
-            name="trade"
-            placeholder="e.g. Builder, electrician"
-            required
-            maxLength={100}
+            id="website"
+            name="website"
+            placeholder="Your website address, if you have one"
+            autoComplete="url"
+            maxLength={300}
           />
         </label>
-        <label htmlFor="area">
-          Where do you work?
-          <input
-            id="area"
-            name="service_area"
-            placeholder="e.g. Kerry"
-            required
-            maxLength={150}
-          />
-        </label>
-      </div>
-      <label htmlFor="website">
-        Existing website <span>(optional)</span>
-        <input
-          id="website"
-          name="website"
-          placeholder="Your website address, if you have one"
-          autoComplete="url"
-          maxLength={300}
-        />
-      </label>
+      </details>
       <label htmlFor="message">
         Anything else we should know? <span>(optional)</span>
         <textarea
@@ -136,11 +168,11 @@ export default function ContactForm() {
         </p>
       )}
       <button type="submit" className="button button-dark" disabled={loading}>
-        {loading ? "Sending your enquiry…" : "Send my enquiry"}
+        {loading ? "Sending your enquiry…" : "Let’s talk about my website"}
         <span aria-hidden="true">↗</span>
       </button>
       <p className="form-status" role="status">
-        {loading ? "Please wait while your enquiry is sent." : ""}
+        {loading ? "Please wait while your enquiry is sent." : "An enquiry starts a conversation. It doesn’t place an order."}
       </p>
     </form>
   );

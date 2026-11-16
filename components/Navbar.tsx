@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const links = [
   { href: "/services", label: "The package" },
   { href: "/projects", label: "Example website" },
@@ -10,8 +10,14 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   return (
-    <header className="site-header">
+    <header className="site-header" onKeyDown={(event) => {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        menuButton.current?.focus();
+      }
+    }}>
       <div className="wrap nav-inner">
         <Link
           href="/"
@@ -37,9 +43,11 @@ export default function Navbar() {
           ))}
         </nav>
         <Link href="/contact" className="button button-dark nav-cta">
-          Let’s talk <span aria-hidden="true">↗</span>
+          Start your website <span aria-hidden="true">↗</span>
         </Link>
         <button
+          ref={menuButton}
+          type="button"
           className="menu-toggle"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -55,7 +63,7 @@ export default function Navbar() {
           aria-label="Mobile navigation"
           className="mobile-nav wrap"
         >
-          {[...links, { href: "/contact", label: "Let’s talk" }].map((l) => (
+          {[...links, { href: "/contact", label: "Start your website · €750" }].map((l) => (
             <Link
               key={l.href}
               href={l.href}
