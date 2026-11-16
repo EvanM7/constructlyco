@@ -24,28 +24,41 @@ export default function Home() {
             <em>better website.</em>
           </h1>
           <p className="hero-description">
-            You take pride in the work. We’ll build a website that shows it,
-            explains your services and makes getting in touch easy.
+            Give the people looking you up a clear reason to get in touch.
+            A considered website that shows your work, explains your services
+            and feels like your business.
           </p>
+          <dl className="hero-facts" aria-label="The website package at a glance">
+            <div><dt>€750</dt><dd>one-off build</dd></div>
+            <div><dt>5 pages</dt><dd>made for your business</dd></div>
+            <div><dt>Yours</dt><dd>after full payment</dd></div>
+          </dl>
           <div className="button-row">
-            <Link href="/services" className="button button-dark">
-              See the €750 package <span aria-hidden="true">↗</span>
+            <Link href="/contact" className="button button-dark">
+              Let’s build your website <span aria-hidden="true">↗</span>
             </Link>
-            <Link href="/projects" className="text-link">
-              Explore the demo <span aria-hidden="true">→</span>
+            <Link href="#package" className="text-link">
+              What’s included <span aria-hidden="true">↓</span>
             </Link>
           </div>
           <p className="hero-note">
-            Five pages. One clear build price. Yours to keep.
+            Hosting, domain and email separate. Care is optional at €49/month.
           </p>
         </div>
         <div className="hero-preview">
           <div className="browser-bar">
             <span aria-hidden="true">● ● ●</span>
-            <span>Example trade website</span>
+            <span>Explore a working website</span>
             <span aria-hidden="true">↗</span>
           </div>
-          <DemoPreview />
+          <Link
+            href="/demo/kerry-stone-and-build"
+            className="demo-preview-link"
+            aria-label="Explore the Kerry Stone and Build demo website"
+          >
+            <DemoPreview />
+            <span className="demo-preview-action">Take a look inside <span aria-hidden="true">↗</span></span>
+          </Link>
           <div className="preview-caption">
             <span className="small-label">
               A fictional business. A working example.
@@ -62,6 +75,11 @@ export default function Home() {
           <span>Electricians</span>
           <span>Roofers &amp; more</span>
         </div>
+      </div>
+      <div className="assurance-strip wrap" aria-label="How we work">
+        <p><span aria-hidden="true">✓</span> Copywriting help included</p>
+        <p><span aria-hidden="true">✓</span> Work directly with your designer</p>
+        <p><span aria-hidden="true">✓</span> No compulsory care subscription</p>
       </div>
       <section className="section wrap two-column" id="package">
         <div className="section-intro">
@@ -139,6 +157,30 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="section wrap founder-section" aria-labelledby="founder-heading">
+        <div className="founder-card">
+          <div className="founder-monogram" aria-hidden="true">EM<span>.</span></div>
+          <div>
+            <p className="eyebrow">The person behind ConstructlyCo</p>
+            <h3>Evan Madden</h3>
+            <p>Independent website designer.<br />Irish roots. Working remotely.</p>
+          </div>
+        </div>
+        <div className="founder-copy">
+          <p className="eyebrow">A small business, for yours</p>
+          <h2 id="founder-heading">One person to talk to.<br /><em>From start to finish.</em></h2>
+          <p>
+            I’m Evan. I’ll help shape your content, build your website and walk
+            you through it before launch. You’ll know who’s doing the work and
+            who to ask when you have a question.
+          </p>
+          <p>
+            We’ll agree the scope, cost and schedule in writing first. Then
+            you can get on with your business while I bring your site together.
+          </p>
+          <Link href="/about" className="text-link">A little more about ConstructlyCo <span aria-hidden="true">→</span></Link>
         </div>
       </section>
       <section className="section wrap faq-section">

@@ -17,14 +17,14 @@ export default function Contact() {
           <em>your business.</em>
         </h1>
         <p>
-          A few details are enough to start. We’ll review what you need and
-          confirm the scope, total and schedule before any work begins.
+          Start with your name, email and business. Tell us more if you’re
+          ready, or we can work through the details together.
         </p>
       </section>
       <section className="section wrap contact-grid">
         <div className="contact-card">
-          <h2>Your website enquiry</h2>
-          <p className="muted">No payment or commitment at this stage.</p>
+          <h2>Let’s make a start.</h2>
+          <p className="muted">Three essentials. No payment or commitment.</p>
           <ContactForm />
         </div>
         <aside className="contact-aside">
@@ -40,6 +40,10 @@ export default function Contact() {
             Review the complete package →
           </Link>
           <hr />
+          <div className="contact-person">
+            <span className="contact-avatar" aria-hidden="true">EM</span>
+            <p><strong>You’ll hear from Evan.</strong><br />The person who will build your website.</p>
+          </div>
           <h3>What happens next?</h3>
           <ol>
             <li>We review your services and what you need.</li>
