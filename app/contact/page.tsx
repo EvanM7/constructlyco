@@ -24,7 +24,13 @@ export default function Contact() {
       <section className="section wrap contact-grid">
         <div className="contact-card">
           <h2>Let’s make a start.</h2>
-          <p className="muted">Three essentials. No payment or commitment.</p>
+          <p className="muted">
+            Prefer email? Write to{" "}
+            <a className="text-link" href="mailto:info@constructlyco.ie">
+              info@constructlyco.ie
+            </a>
+            .
+          </p>
           <ContactForm />
         </div>
         <aside className="contact-aside">
