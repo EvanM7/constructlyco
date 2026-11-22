@@ -15,6 +15,11 @@ export default function Footer() {
               <br />
               Clear scope. Straightforward delivery.
             </p>
+            <p>
+              <a className="text-link" href="mailto:info@constructlyco.ie">
+                info@constructlyco.ie
+              </a>
+            </p>
           </div>
           <div>
             <p className="eyebrow">Explore</p>
