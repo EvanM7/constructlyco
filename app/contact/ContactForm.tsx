@@ -10,14 +10,14 @@ declare global {
 export default function ContactForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [submitFailed, setSubmitFailed] = useState(false);
   const sending = useRef(false);
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (sending.current) return;
     sending.current = true;
     setLoading(true);
-    setError("");
+    setSubmitFailed(false);
     try {
       const response = await fetch("https://formspree.io/f/xvzvgnzy", {
         method: "POST",
@@ -26,9 +26,7 @@ export default function ContactForm() {
       });
       if (!response.ok) throw new Error("Unable to send enquiry");
     } catch {
-      setError(
-        "Your enquiry could not be sent. Your details are still here; please try again.",
-      );
+      setSubmitFailed(true);
       sending.current = false;
       setLoading(false);
       return;
@@ -162,9 +160,14 @@ export default function ContactForm() {
         We use these details to respond to your enquiry. The form is processed
         by Formspree. <Link href="/privacy">Read the privacy information.</Link>
       </p>
-      {error && (
+      {submitFailed && (
         <p className="form-error" role="alert">
-          {error}
+          Your enquiry could not be sent. Your details are still here. Try
+          again or email{" "}
+          <a className="text-link" href="mailto:info@constructlyco.ie">
+            info@constructlyco.ie
+          </a>
+          .
         </p>
       )}
       <button type="submit" className="button button-dark" disabled={loading}>
